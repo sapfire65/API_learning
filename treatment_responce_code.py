@@ -9,7 +9,7 @@ print(first_responce.url) # Вывести URL запроса
 print(second_responce.url) # Вывести URL запроса
 
 
-
-# print(responce.status_code) # Получаем статус код страницы (будет сравниватся с ожидаемым кодом)
-# print(responce.text) # Выводим и код ответа и текст страницы
+print()
+print(responce.status_code) # Получаем статус код страницы (будет сравниватся с ожидаемым кодом)
+print(responce.text) # Выводим и код ответа и текст страницы
 
